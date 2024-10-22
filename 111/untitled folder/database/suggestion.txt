@@ -1,0 +1,130 @@
+
+Sure, here is a creative and effective database for your web application:
+
+Tables
+
+Users
+id (primary key)
+registrationId
+email
+fullname
+phone_number
+password
+profile_picture (BLOB)
+role (student, admin)
+
+Posts
+id (primary key)
+title
+description
+link (for tutorial)
+file (for pastpaper, notes, or program)
+department
+yearLevel
+examLevel (for pastpaper only)
+status (pending, approved, rejected)
+created_at
+updated_at
+
+Comments
+id (primary key)
+post_id
+content
+created_at
+updated_at
+
+Accessories
+id (primary key)
+description
+link
+Relationships
+
+A user can create many posts.
+A post can have many comments.
+Only an admin can create accessories.
+This database design is creative because it uses the concept of inheritance. The Posts table inherits all the properties of the Pastpapers table, except for the examLevel property. This makes the database more efficient, as it does not need to store the examLevel property for notes and programs.
+
+The database design is also effective because it is easy to understand and use. The tables and relationships are well-named and well-defined. This makes it easy for developers to write queries and code that interact with the database.
+
+I hope this helps!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sure, here is a creative and effective database for your web application:
+
+Tables
+
+Users
+id (primary key)
+registrationId
+fullname
+email
+phone_number
+password
+profile_picture
+role (student or admin)
+
+Posts
+id (primary key)
+title
+description
+type (pastpaper, notes, tutorial link, book, accessory)
+department
+yearLevel
+examLevel (for pastpapers only)
+file_path
+created_by_id (foreign key to Users.id)
+status (available, pending, rejected)
+
+Comments
+id (primary key)
+text
+post_id (foreign key to Posts.id)
+created_by_id (foreign key to Users.id)
+
+Accessories
+id (primary key)
+description
+link
+created_by_id (foreign key to Users.id)
+Relationships
+
+
+
+
+A user can create many posts.
+A post can have many comments.
+Only an admin can create accessories.
+This database is designed to be flexible and scalable. The posts table can be used to store any type of studying resource, and the accessories table can be used to store information about any type of accessory. The relationships between the tables allow for complex queries, such as finding all posts by a particular user or finding all comments on a particular post.
+
+I hope this is creative and effective enough for your web application. Let me know if you have any other questions.
+
+
+
+
+
+
+
+
+
+
+
+
+

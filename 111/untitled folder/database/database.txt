@@ -1,0 +1,72 @@
+CREATE TABLE student (
+  tnumber varchar(30) PRIMARY KEY,
+  fname varchar(50) NOT NULL,
+  mname varchar(50) NOT NULL,
+  lname varchar(50) NOT NULL,
+  email varchar(50) NOT NULL,
+  phone int NOT NULL,
+  password varchar(50) NOT NULL,
+  propicture varchar(100)
+);
+
+-- Common columns for files (PDFs, notes, past papers)
+CREATE TABLE files (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  pathname varchar(100) NOT NULL,
+  yearlevel varchar(100) NOT NULL,
+  department varchar(100) NOT NULL,
+  coursename varchar(30) NOT NULL,
+  programe varchar(40) NOT NULL
+);
+
+-- Past Papers Table
+CREATE TABLE pastpaper (
+  id INT PRIMARY KEY,
+  examlevel varchar(20) NOT NULL,
+  pastyear varchar(40) NOT NULL,
+  likebutton int,
+  FOREIGN KEY (id) REFERENCES files (id)
+);
+
+-- Notes Table
+CREATE TABLE notes (
+  id INT PRIMARY KEY,
+  //noteslevel varchar(20) NOT NULL,
+  notesyear varchar(40) NOT NULL,
+  likebutton int,
+  FOREIGN KEY (id) REFERENCES files (id)
+);
+
+-- PDF Files Table
+CREATE TABLE pdffiles (
+  pathname varchar(100),
+  PRIMARY KEY (pathname)
+);
+
+-- Installation Table
+CREATE TABLE installation (
+  description varchar(500),
+  link varchar(300),
+  FOREIGN KEY (link) REFERENCES pdffiles (pathname)
+);
+
+-- Tutorial Table
+CREATE TABLE tutorial (
+  description varchar(500),
+  link varchar(300),
+  FOREIGN KEY (link) REFERENCES pdffiles (pathname)
+);
+
+-- Books Table
+CREATE TABLE books (
+  description varchar(500),
+  link varchar(300),
+  FOREIGN KEY (link) REFERENCES pdffiles (pathname)
+);
+
+-- Accessories Table
+CREATE TABLE accessories (
+  description varchar(500),
+  link varchar(300),
+  FOREIGN KEY (link) REFERENCES pdffiles (pathname)
+);

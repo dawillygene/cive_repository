@@ -1,0 +1,78 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ... (Your existing head section) ... -->
+  
+  
+</head>
+
+<body>
+  <div class="container">
+    <div class="login-container">
+      <h1>Login</h1>
+      <form id="login-form" action="#" method="POST">
+        <div class="input-container">
+          <input type="text" id="username" placeholder="Username" name="username" required>
+        </div>
+        <div class="input-container">
+          <input type="password" id="password" placeholder="Password" name="password" required>
+          <span class="password-toggle" id="password-toggle"><i class="far fa-eye"></i></span>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+    <script>
+      // ... (Your existing JavaScript) ...
+    </script>
+  </div>
+
+  <?php 
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  require_once 'db.php';
+
+  $login_error = '';
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Validate student credentials
+    $sqlme = "SELECT Registration_ID, Password FROM student T, personal_details u WHERE T.Registration_ID = ? AND u.Password = ?";
+    $stmt = $conn->prepare($sqlme);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $student = $result->fetch_assoc();
+
+    // Validate admin credentials
+    $sqlm = "SELECT admin_username, Password FROM system_admin,personal_details WHERE admin_username = ? AND Password = ?";
+    $stmty = $conn->prepare($sqlm);
+    $stmty->bind_param("ss", $username, $password);
+    $stmty->execute();
+    $result_admin = $stmty->get_result();
+    $admin = $result_admin->fetch_assoc();
+
+    if ($student) {
+      $_SESSION['student'] = $student['Registration_ID'];
+      $_SESSION['username'] = $student['Fname'];
+      header("Location: dashbord.php");
+      exit();
+    } elseif ($admin) {
+      $_SESSION['admin'] = $admin['admin_username'];
+      $_SESSION['username'] = 'Admin'; // You can set the admin username as needed.
+      header("Location: admin_dashboard.php"); // Redirect to the admin dashboard page.
+      exit();
+    } else {
+      $login_error = "Invalid username or password.";
+    }
+
+    $stmt->close();
+    $stmty->close();
+  }
+  ?>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+content provider
+broadcast receiver
+
+
+In a database:
+Sqlite
+shell preference

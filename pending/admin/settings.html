@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cive repository</title>
+    <link rel="stylesheet" href="style.css"/>
+
+    <style>
+          
+    /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body and container */
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f0f0f0; */
+}
+
+.containerr {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    /* background-color: #ffffff; */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: column;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Style form elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    display: none;
+    text-align: center;
+}
+
+input[type="file"]{
+  
+    color: #fff;
+    padding: 10px 15px;
+    height: 50px;
+    cursor: pointer;
+    margin-left: 300px;
+    margin-right: 300px;
+    border-radius: 2px;
+    text-align: center;
+    display:block;
+}
+
+#preview-image{
+    text-align: center;
+    max-width: 10%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+    border-radius: 70%;
+    margin-bottom: 10%;
+    overflow: auto;
+   
+    
+}
+#profile-picture{
+    text-align: center;
+    display: block;
+    padding-left: 90px;
+    padding-right: 60px;
+}
+
+input[type="password"] {
+    width: 40%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Responsive layout */
+@media (max-width: 480px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+
+
+
+
+      
+
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="navigation">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="server"></ion-icon>
+              </span>
+              <span class="title">Cive repository</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="addDash.html">
+              <span class="icon">
+                <ion-icon name="desktop"></ion-icon>
+              </span>
+              <span class="title">Dashboard</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="addUpload.html">
+              <span class="icon">
+                <ion-icon name="cloud-upload-outline"></ion-icon>
+              </span>
+              <span class="title">Upload</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="eye"></ion-icon>
+              </span>
+              <span class="title">View</span>
+            </a>
+          </li>
+
+          
+          <li>
+            <a href="addManagePost.html">
+              <span class="icon">
+                <ion-icon name="mail-open-outline"></ion-icon>
+              </span>
+              <span class="title">Manage Post</span>
+            </a>
+          </li>
+           
+          <li>
+            <a href="addManageUser.html">
+              <span class="icon">
+                <ion-icon name="people-circle-sharp"></ion-icon>
+              </span>
+              <span class="title">Manage Users</span>
+            </a>
+          </li>
+
+
+          <li>
+            <a href="help.html">
+              <span class="icon">
+                <ion-icon name="help-outline"></ion-icon>
+              </span>
+              <span class="title">Help</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="settings-outline"></ion-icon>
+              </span>
+              <span class="title">Settings</span>
+            </a>
+          </li>
+
+
+          <li>
+            <a href="#">
+              <span class="icon">
+                <ion-icon name="log-out-outline"></ion-icon>
+              </span>
+              <span class="title">Sign Out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- ========================= Main ==================== -->
+      <div class="main">
+        <div class="topbar">
+          <div class="toggle">
+            <ion-icon name="menu-outline"></ion-icon>
+          </div>
+
+          <div class="search">
+            <label>
+              <input type="text" placeholder="Search here" />
+              <ion-icon name="search-outline"></ion-icon>
+            </label>
+          </div>
+
+          <div class="user">
+            <img src="assets/imgs/customer01.jpg" alt="" />
+          </div>
+        </div>
+
+        <!-- ======================= Cards ================== -->
+        
+
+
+        <div class="containerr">
+          <h1>Settings</h1>
+          <form id="settings-form">
+              <div class="form-group">
+                  <center>
+                      
+                  <img id="preview-image" src="#" alt="Preview">
+                  <label>change profile</label>
+              </center>
+              <center>
+                  <input type="file" id="profile-picture" accept="image/*">
+                  </center>
+                  </div>
+              <div class="form-group">
+                  <input type="password" id="new-password" placeholder="Enter new password">
+              </div>
+              <div class="form-group">
+                 <input type="password" id="confirm-password" placeholder="Confirm new password">
+              </div>
+              <div class="form-group">
+                  <button type="submit">Save Changes</button>
+              </div>
+          </form>
+      </div>
+  
+      <script>
+          const profilePictureInput = document.getElementById('profile-picture');
+          const previewImage = document.getElementById('preview-image');
+          const settingsForm = document.getElementById('settings-form');
+          
+          // Load the saved profile picture from localStorage on page load
+          const savedProfilePicture = localStorage.getItem('profilePicture');
+          if (savedProfilePicture) {
+              previewImage.src = savedProfilePicture;
+          }
+  
+          profilePictureInput.addEventListener('change', (e) => {
+              const file = e.target.files[0];
+              if (file) {
+                  const reader = new FileReader();
+                  reader.onload = (event) => {
+                      previewImage.src = event.target.result;
+                  };
+                  reader.readAsDataURL(file);
+              }
+          });
+  
+          settingsForm.addEventListener('submit', (e) => {
+              e.preventDefault();
+  
+              const newPassword = document.getElementById('new-password').value;
+              const confirmPassword = document.getElementById('confirm-password').value;
+  
+              if (newPassword !== confirmPassword) {
+                  alert('New password and confirm password do not match.');
+              } else {
+                  // Save the profile picture to localStorage
+                  localStorage.setItem('profilePicture', previewImage.src);
+  
+                  alert('Changes saved successfully.');
+                  settingsForm.reset();
+              }
+          });
+      </script>
+
+
+
+
+        
+      </div>
+    </div>
+
+    <!-- =========== Scripts =========  -->
+    <script src="main.js"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
